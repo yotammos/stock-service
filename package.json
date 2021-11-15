@@ -7,9 +7,11 @@
     "clean": "rm -rf dist",
     "start": "ts-node src/app.ts",
     "start:prod": "npm run release && node dist/app.js",
-    "build": "tsc",
+    "build": "tsc && npm run lint && npm run prettier",
     "release": "npm run clean && tsc && npm run rollup",
-    "rollup": "rollup -c rollup.config.js"
+    "rollup": "rollup -c rollup.config.js",
+    "lint": "eslint --fix",
+    "prettier": "prettier --check 'src/**/*.ts' --write"
   },
   "author": "",
   "license": "ISC",
@@ -22,15 +24,21 @@
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "nodemon": "^2.0.12",
+    "prettier": "2.4.1",
     "rollup-plugin-typescript2": "^0.30.0",
     "ts-node": "^10.2.1",
     "tslib": "^2.3.1",
     "typescript": "^4.4.2"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.41.0",
+    "@aws-sdk/types": "^3.40.0",
+    "axios": "^0.24.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-validator": "^6.13.0",
     "uuid": "^8.3.2"
   }
 }

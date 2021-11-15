@@ -7,12 +7,12 @@ export default {
   input: "./src/app.ts",
   output: {
     dir: "dist",
-    format: "cjs"
+    format: "cjs",
   },
   plugins: [
     typescript({ tsconfig: "./tsconfig.json" }),
     nodeResolve(),
     commonjs({ ignoreDynamicRequires: true }),
-    json()
-  ]
+    json(),
+  ],
 };

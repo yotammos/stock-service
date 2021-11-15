@@ -1,13 +1,21 @@
+import { AttributeValue } from "@aws-sdk/client-dynamodb";
+
 export interface CreateStockTransactionRequest {
   readonly symbol: string;
-  readonly price: number;
-  readonly count: number;
+  readonly value: number;
 }
 
 export interface StockTransaction {
   readonly symbol: string;
-  readonly price: number;
   readonly count: number;
   readonly createdAt: Date;
   readonly id: string;
+}
+
+export interface DdbStockRecord {
+  purchaseCost: AttributeValue;
+  createdAt: AttributeValue;
+  count: AttributeValue;
+  id: AttributeValue;
+  symbol: AttributeValue;
 }
